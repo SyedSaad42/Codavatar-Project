@@ -19,11 +19,11 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Clean install
+      - name: Install dependencies
         run: |
-          npm cache clean --force
-          rm -rf node_modules package-lock.json
           npm install
+          npm install -D tailwindcss postcss autoprefixer
+          npx tailwindcss init -p
 
       - name: Build project
         run: npm run build
